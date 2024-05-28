@@ -12,7 +12,14 @@ const bookingRoutes = require("./routes/booking.js")
 const userRoutes = require("./routes/user.js")
 
 
-app.use(cors());
+app.use(cors(
+
+    {
+        origin: ["https://deploy.rentify.in", "http://localhost:3000"],
+        credentials: true,
+        methods: ["GET", "POST", "PUT", "DELETE"],
+    }
+));
 app.use(express.json());
 app.use(express.static("public"));
 
